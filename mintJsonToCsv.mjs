@@ -22,11 +22,12 @@ for (const file of transactionFiles) {
 
     for (const transaction of transactions) {
         // Get the account URN for the transaction
-        const accountUrn = transaction.associations.find(association => association.startsWith('urn:account'));
+        const accountUrn = transaction.associations.find(association => association.startsWith('urn:account:fdp'));
 
         // Get the account name for the transaction
         const account = accounts.find(acc => acc.accountId === accountUrn);
-        const accountName = account ? account.nickName : '';
+        let accountName = account ? account.nickName : '';
+        accountName = accountName.replace(',', '_');
 
         // Format the transaction data
         let date = null;
@@ -38,16 +39,19 @@ for (const file of transactionFiles) {
             date = transaction.postedDate.split('T')[0];
         }
 
-        const description = transaction.description;
-        const originalDescription = transaction.description;
+        let description = transaction.description;
+        description = description.replace(',', '_');
+
         const amount = transaction.amount.toFixed(2);
-        const transactionType = transaction.transactionType.toLowerCase();
-        const category = transaction.categoryName;
+        const transactionType = transaction.transactionType ? transaction.transactionType.toLowerCase() : '';
+        let category = transaction.categoryName;
+        category = category.replace(',', '_');
+
         const labels = '';
         const notes = '';
 
         // Append the transaction data to the CSV
-        csv += `${date},${description},${originalDescription},${amount},${transactionType},${category},${accountName},${labels},${notes}\n`;
+        csv += `${date},${description},${description},${amount},${transactionType},${category},${accountName},${labels},${notes}\n`;
     }
 }
 
