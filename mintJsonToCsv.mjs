@@ -26,7 +26,25 @@ for (const file of transactionFiles) {
 
         // Get the account name for the transaction
         const account = accounts.find(acc => acc.accountId === accountUrn);
-        let accountName = account ? account.nickName : '';
+        
+        if (!account) {
+            console.warn(`Account not found for transaction: ${transaction.id}`);
+            continue;
+        }
+
+        let accountName;
+        if (!account) {
+            accountName = accountUrn;
+        } else if (account.nickName) {
+            accountName = account.nickName;
+        } else if (account.displayName) {
+            accountName = account.displayName;
+        } else if (account.description) {
+            accountName = account.description;
+        } else {
+            accountName = accountUrn;
+        }
+        
         accountName = accountName.replace(',', '_');
 
         // Format the transaction data
