@@ -62,7 +62,16 @@ for (const file of transactionFiles) {
 
         const amount = transaction.amount.toFixed(2);
         const transactionType = transaction.transactionType ? transaction.transactionType.toLowerCase() : '';
-        let category = transaction.categoryName;
+
+        let category;
+        if (transaction.categoryName) {
+            category = transaction.categoryName;
+        } else if (transaction.categoryId) {
+            category = transaction.categoryId;
+        } else {
+            category = '';
+        }
+
         category = category.replace(',', '_');
 
         const labels = '';
