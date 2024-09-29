@@ -45,7 +45,7 @@ for (const file of transactionFiles) {
             accountName = accountUrn;
         }
         
-        accountName = accountName.replace(',', '_');
+        accountName = accountName.replaceAll(',', '_');
 
         // Format the transaction data
         let date = null;
@@ -58,7 +58,7 @@ for (const file of transactionFiles) {
         }
 
         let description = transaction.description;
-        description = description.replace(',', '_');
+        description = description.replaceAll(',', '_');
 
         const amount = transaction.amount.toFixed(2);
         const transactionType = transaction.transactionType ? transaction.transactionType.toLowerCase() : '';
@@ -72,7 +72,7 @@ for (const file of transactionFiles) {
             category = '';
         }
 
-        category = category.replace(',', '_');
+        category = category.replaceAll(',', '_');
 
         const labels = '';
         const notes = '';
