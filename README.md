@@ -4,10 +4,10 @@ Mint the budgeting software is gone, but your data may not be.
 This script converts the Mint data provided by [Intuit's Data & Privacy page](https://accounts.intuit.com/app/account-manager/myData) to a .csv file format. It locates Mint transactions within the download provided by Intuit and converts the transactions to a format that other software including  finance tools like Monarch and Simplifi can utilize to import data.
 
 ## Steps for Getting Mint Data
-1. Request data from [Intuit's Data & Privacy page](https://accounts.intuit.com/app/account-manager/myData).
-    a. Intuit acknowledges receipt of the request and gives a processing time that could take 15 days. (It is typically 2 or 3 days.)
-    b. Intuit will notify the account holder when their data is ready. 
-    c. Once ready, download the data. The download should be available for a few weeks on Intuit.
+1. Request data from [Intuit's Data & Privacy page](https://accounts.intuit.com/app/account-manager/myData). 
+    - Intuit acknowledges receipt of the request and gives a processing time that could take 15 days. (It is typically 2 or 3 days.)
+    - Intuit will notify the account holder when their data is ready. 
+    - Once ready, download the data. The download should be available for a few weeks on Intuit.
 2. Node.js is needed to run the script. Download [Node.js LTS](https://nodejs.org/en). 
 3. Open a command prompt and navigate to where the Intuit data is.
     - Locate directory SharedData/FinancialData. You should see a file named accounts_users_...txt and other files named transactions_users_...txt.
