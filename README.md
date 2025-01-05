@@ -5,7 +5,7 @@ This script converts the Mint data provided by [Intuit's Data & Privacy page](ht
 
 ## Steps for Getting Mint Data
 1. Request data from [Intuit's Data & Privacy page](https://accounts.intuit.com/app/account-manager/myData). 
-    - Intuit acknowledges receipt of the request and gives a processing time that could take 15 days. (It is typically 2 or 3 days.)
+    - Intuit acknowledges receipt of the request and gives a processing time that could take 15 days. (It typically takes 2 or 3 days.)
     - Intuit will notify the account holder when their data is ready. 
     - Once ready, download the data. The download should be available for a few weeks on Intuit.
 2. Node.js is needed to run the script. Download [Node.js LTS](https://nodejs.org/en). 
